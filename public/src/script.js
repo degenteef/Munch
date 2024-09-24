@@ -1,3 +1,6 @@
+//Imports
+import "./social_buttons.js"
+
 // Meme image elements
 const catImage = document.getElementById('cat-image');
 const backgroundImage = document.getElementById('background-image');
@@ -195,8 +198,26 @@ function downloadMeme() {
     face.onerror = () => console.error('Error loading face image');
 }
 
+//copy CA
+const CA = "please wait for update";
+
+function copyCA() {
+    navigator.clipboard.writeText(CA);
+    alert("Copied the CA: " + CA);
+    console.log('copied text');
+}
+
+const caText = document.getElementById('copyca');
+
+function changeCA() {
+    caText.innerHTML= "CA: " + CA;
+};
+
 // Event listeners
 document.getElementById('randomize').addEventListener('click', randomizeMeme);
 document.getElementById('download').addEventListener('click', downloadMeme);
 document.getElementById('reset').addEventListener('click', selectFirstImages);
+document.getElementById('copyca').addEventListener('click', copyCA);
+
+changeCA();
 selectFirstImages();
